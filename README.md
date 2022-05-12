@@ -25,7 +25,7 @@ image by heracles
 # Notes
 Huge thanks to https://github.com/vanortg/Flask-Spotify-Auth ! With his program, I don't spend time to create my own to login in spotify api.
 
-<ins>Fact :</ins> 
+<ins>Trivia :</ins> 
 
 When I deploy spotiterm on https://musicsaved.me 's server, everything was fine except the most important thing : the GIF generation. My server was'nt good enough to generate gif...
 
