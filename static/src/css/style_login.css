@@ -1,0 +1,113 @@
+body{
+	background-color: black;
+	font-family: "Lucida Console", "Courier New", monospace;
+	background-image: url("../img/background.gif");
+	background-size: cover;
+}
+
+.link{
+	text-decoration: none;
+	color: green;
+}
+
+/* Header Flexbox */
+
+#header-container{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.header-item {
+	width: 300px;
+	height: 50px;
+	text-align: center;
+	font-size: 30px;
+	color: green;
+	margin: 30px;
+}
+
+/* Middle Flexbox */
+
+#body-container{
+	display: flex;	
+	justify-content: center;
+	align-items: center;
+	flex-wrap: wrap;
+	margin: 15px;
+	height: 400px;
+}
+
+.body-item {
+	width: 300px;
+	height: 250px;
+	text-align: center;
+	font-size: 18px;
+	color: green;
+	margin: 15px;
+}
+
+#login-container{
+	display: flex;	
+	justify-content: center;
+	align-items: center;
+	flex-wrap: wrap;
+	flex-direction: column;
+	margin: 10px;
+	height: 150px;
+	border-style: solid;
+	border-color: #182128;
+	border-width: 2px;
+	
+}
+
+input:focus {
+	outline:none;
+}
+
+.login-item {
+	font-size: 18px;
+	color: green;
+	margin: 10px;
+	background-color: #182128;
+}
+
+.logbutton-item{
+	font-size: 15px;
+	color: green;
+	background-color: rgba(0, 0, 0, 0);
+	border-style: solid;
+	border-color: #182128;
+	border-width: 1.5px;
+	border-radius: 3px;
+	cursor:pointer;
+}
+
+
+/* Modification du CSS en fonction de la taille d'écran */
+
+@media screen and (max-width: 600px) {
+	.body-item{
+		height: 150px;
+		font-size: 13px;
+	}
+
+}
+
+@media screen and (max-width: 1020px){
+	.body-item{
+		height: 200px;
+		font-size: 13px;
+	}
+
+}
+
+@media screen and (min-width: 900px) and (max-width: 1200px){
+	.body-item{
+		height: 250px;
+		font-size: 13px;
+	}
+
+}
+
+@media only screen and (min-device-width: 300px) and (max-device-width: 1024px) and (orientation:landscape) {}

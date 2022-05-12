@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+	<meta charset="utf-8">
+	<title>spotiterm</title>
+	<link rel="stylesheet" href="{{ url_for('static', filename='src/css/style_login.css') }}">
+	<!--Viewport-->
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+</head>
+
+<body>
+
+	{%- with messages = get_flashed_messages() %}
+	{% if messages %}
+		{% for message in messages %}
+			<script>
+			alert('{{ message }}');
+			</script>
+		{% endfor %}
+	{% endif %}
+	{% endwith -%}
+
+	<div id="header-container">
+		<div class="header-item">
+			<a href="index" class="link">[spotiterm]</a>
+		</div>
+	</div>
+
+
+	<div id="body-container">
+		<div class="body-item">
+			<div id="login-container">
+				<form action="/login/login2Account" method="post">
+					<input class="login-item" type="text" placeholder="[username]" name="user" required>
+					<input class="login-item" type="password" placeholder="[password]" name="passwd" required>
+    				<button class="logbutton-item" type="submit">[login]</button>
+				</form>
+			</div>
+		</div>
+	</div>
+</body>
+
+</html>

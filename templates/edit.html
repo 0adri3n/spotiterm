@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+	<meta charset="utf-8">
+	<title>spotiterm</title>
+	<link rel="stylesheet" href="{{ url_for('static', filename='src/css/style_edit.css') }}">
+	<!--Viewport-->
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+</head>
+
+<body>
+
+	{%- with messages = get_flashed_messages() %}
+	{% if messages %}
+		{% for message in messages %}
+			<script>
+			alert('{{ message }}');
+			</script>
+		{% endfor %}
+	{% endif %}
+	{% endwith -%}
+
+	<div id="header-container">
+		<div class="header-item">
+			<a href="index" class="link">[spotiterm]</a>
+		</div>
+	</div>
+
+
+	<div id="body-container">
+		<div class="body-item">
+			<div id="edit-container">
+				<form action="/edit/editUsername" method="post">
+					<input class="edit-item" type="text" placeholder="[new username]" name="newuser" required>
+					<button class="editbutton-item" type="submit">[save username]</button>
+				</form>
+				<form action="/edit/editPassword" method="post">
+					<input class="edit-item" type="password" placeholder="[current password]" name="currentpasswd" required>
+					<input class="edit-item" type="password" placeholder="[new password]" name="newpasswd" required>
+					<button class="editbutton-item" type="submit">[save password]</button>
+				</form>
+				<form action="/edit/editPfp" method="post">
+					<input class="edit-item" type="text" placeholder="[new profile photo url]" name="newpfplink" required>
+					<button class="editbutton-item" type="submit">[save profile photo]</button>
+				</form>
+			</div>
+		</div>
+	</div>
+</body>
+
+</html>

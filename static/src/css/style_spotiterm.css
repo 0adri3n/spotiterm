@@ -1,0 +1,161 @@
+body{
+	background-color: black;
+	font-family: "Lucida Console", "Courier New", monospace;
+	background-image: url("../img/background.gif");
+	background-size: cover;
+}	
+
+.link{
+	text-decoration: none;
+	color: green;
+}
+
+/* Header Flexbox */
+
+#header-container{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.header-item {
+	width: 300px;
+	height: 50px;
+	text-align: center;
+	font-size: 30px;
+	color: green;
+	margin: 30px;
+}
+
+/* Middle Flexbox */
+
+#body-container{
+	display: flex;	
+	justify-content: center;
+	align-items: center;
+	flex-wrap: wrap;
+	flex-direction: row;
+	margin: 15px;
+	height: 150px;
+}
+
+.body-item {
+	width: 300px;
+	height: 250px;
+	text-align: center;
+	font-size: 18px;
+	color: green;
+	margin: 15px;
+}
+
+#menu-container{
+	display: flex;	
+	justify-content: center;
+	align-items: center;
+	flex-wrap: wrap;
+	flex-direction: column;
+	margin: 30px;
+	height: 150px;
+	border-style: solid;
+	border-color: #182128;
+	border-width: 2px;
+}
+
+#menu-item {
+	font-size: 18px;
+	color: green;
+	margin: 20px;
+	background-color: #182128;
+}
+
+.menubutton-item{
+	font-size: 15px;
+	color: green;
+	background-color: rgba(0, 0, 0, 0);
+	border-style: solid;
+	border-color: #182128;
+	border-width: 1.5px;
+	border-radius: 3px;
+	margin: 5px;
+	cursor:pointer;
+
+}
+
+#info-container
+{
+	display: flex;	
+	justify-content: center;
+	align-items: center;
+	flex-wrap: wrap;
+	flex-direction: column;
+	margin: 30px;
+	height: 470px;
+	border-style: solid;
+	border-color: #182128;
+	border-width: 2px;
+}
+
+.info-item{
+	font-size: 18px;
+	color: green;
+	margin: 20px;
+	background-color: rgba(0, 0, 0, 0);
+}
+
+.ppimg{
+	width: 70px;
+	border-color: green;
+	border-width: 2px;
+	border-style: solid;
+}
+
+/* Modification du CSS en fonction de la taille d'écran */
+
+@media screen and (max-width: 600px) {
+	.body-item{
+		height: 150px;
+		font-size: 13px;
+	}
+	.info-item{
+		font-size: 13px;
+		height: 410px;
+	}
+
+}
+
+@media screen and (max-width: 1020px){
+	.body-item{
+		height: 200px;
+		font-size: 13px;
+	}
+	.info-item{
+		font-size: 13px;
+		height: 420px;
+	}
+
+}
+
+@media screen and (min-width: 900px) and (max-width: 1200px){
+	.body-item{
+		height: 250px;
+		font-size: 13px;
+	}
+
+	.info-item{
+		font-size: 13px;
+		height: 430px;
+	}
+
+}
+
+@media only screen and (min-device-width: 300px) and (max-device-width: 1024px) and (orientation:landscape) {
+	.body-item{
+		height: 250px;
+		font-size: 13px;
+	}
+
+	.info-item{
+		font-size: 13px;
+		height: 440px;
+	}
+}

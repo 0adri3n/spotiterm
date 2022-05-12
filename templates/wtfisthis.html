@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+	<meta charset="utf-8">
+	<title>spotiterm</title>
+	<link rel="stylesheet" href="{{ url_for('static', filename='src/css/style_login.css') }}">
+	<!--Viewport-->
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+</head>
+
+<body>
+
+	{%- with messages = get_flashed_messages() %}
+	{% if messages %}
+		{% for message in messages %}
+			<script>
+			alert('{{ message }}');
+			</script>
+		{% endfor %}
+	{% endif %}
+	{% endwith -%}
+
+	<div id="header-container">
+		<div class="header-item">
+			<a href="index" class="link">[spotiterm]</a>
+		</div>
+	</div>
+
+
+	<div id="body-container">
+		<div class="body-item">
+            spotiterm let u generate a gif similar to a terminal with ur top tracks/artists on spotify, in different time range
+            <p>
+            ur stats r stored in a database thanks to ur account, so feature like a discord bot can be dev !
+		</div>
+	</div>
+</body>
+
+</html>

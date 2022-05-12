@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+	<meta charset="utf-8">
+	<title>spotiterm</title>
+	<link rel="stylesheet" href="{{ url_for('static', filename='src/css/style_index.css') }}">
+
+	<!--Embed du site lors d'un partage-->
+
+	<meta property="og:title" content="spotiterm" />
+	<meta property="og:type" content="website" />
+	<meta property="og:url" content="https://musicsaved.me/spotiterm/index" />
+	<!--<meta property="og:image" content="http://my.site.com/images/thumb.png" />-->
+	<meta property="og:description" content="generate a gif with ur spotify's top tracks/artists right now." />
+	<meta name="theme-color" content="#008000">
+
+	<!--Viewport-->
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+</head>
+
+<body>
+
+	{%- with messages = get_flashed_messages() %}
+	{% if messages %}
+		{% for message in messages %}
+			<script>
+			alert('{{ message }}');
+			</script>
+		{% endfor %}
+	{% endif %}
+	{% endwith -%}
+
+	<div id="header-container">
+		<div class="header-item">
+			<a href="index" class="link">[spotiterm]</a>
+		</div>
+	</div>
+
+
+	<div id="body-container">
+		{% if not session["username"] %}
+		<div class="body-item">
+			<div id="menu-container">
+				<div class="menu-item">
+					<button class="menubutton-item" type="submit"><a href="login" class="link">[login]</a></button>
+				</div>
+				<div class="menu-item">
+					<button class="menubutton-item" type="submit"><a href="register" class="link">[register]</a></button>
+				</div>
+				<div class="menu-item">
+					<button class="menubutton-item" type="submit"><a href="wtfisthis" class="link">[wtf is this ?!]</a></button>
+				</div>
+			</div>
+		</div>
+		{% endif %}
+		{% if session["username"] %}
+		<div class="body-item">
+			<div id="info-container">
+				<div class="info-item">
+					<img src="{{session['pfplink']}}" class="ppimg"></img> 
+					<p>
+					welcome back {{session['username']}} !
+				
+					<form action="/profileInfo" method="post">
+						<button class="menubutton-item" type="submit" name="action" value="spotiterm"><a href="spotiterm" class="link">[access to spotiterm]</a></button>
+						<button class="menubutton-item" type="submit" name="action" value="edit">[edit account]</button>
+						<button class="menubutton-item" type="submit" name="action" value="logout">[logout]</button>
+					</form>
+				</div>
+			</div>
+		</div>
+		{% endif %}
+	</div>
+</body>
+
+</html>

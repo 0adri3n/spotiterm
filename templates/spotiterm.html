@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+	<meta charset="utf-8">
+	<title>spotiterm</title>
+	<link rel="stylesheet" href="{{ url_for('static', filename='src/css/style_spotiterm.css') }}">
+	<!--Embed du site lors d'un partage-->
+
+	<meta property="og:title" content="spotiterm" />
+	<meta property="og:type" content="website" />
+	<meta property="og:url" content="https://musicsaved.me/spotiterm/index" />
+	<!--<meta property="og:image" content="http://my.site.com/images/thumb.png" />-->
+	<meta property="og:description" content="spotiterm's website" />
+	<meta name="theme-color" content="#008000">
+
+	<!--Viewport-->
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+</head>
+
+<body>
+
+	{%- with messages = get_flashed_messages() %}
+	{% if messages %}
+		{% for message in messages %}
+			<script>
+			alert('{{ message }}');
+			</script>
+		{% endfor %}
+	{% endif %}
+	{% endwith -%}
+
+	<div id="header-container">
+		<div class="header-item">
+			<a href="index" class="link">[spotiterm]</a>
+		</div>
+	</div>
+
+
+	<div id="body-container">
+		{% if not session["username"] %}
+		<div class="body-item">
+			<div id="menu-container">
+				<div class="menu-item">
+					<button class="menubutton-item" type="submit"><a href="login" class="link">[login]</a></button>
+				</div>
+				<div class="menu-item">
+					<button class="menubutton-item" type="submit"><a href="register" class="link">[register]</a></button>
+				</div>
+				<div class="menu-item">
+					<button class="menubutton-item" type="submit"><a href="wtfisthis" class="link">[wtf is this ?!]</a></button>
+				</div>
+			</div>
+		</div>
+		{% endif %}
+		{% if session["username"] %}
+		<div class="body-item">
+			<div id="info-container">
+				<div class="info-item">
+					<img src="{{session['pfplink']}}" class="ppimg"></img> 
+				
+					{% if not session["spotifytoken"] %}
+					<form action="/spotiterm/loginSpotify" method="post">
+						<button class="menubutton-item" type="submit" >[login to spotify]</a></button>
+					</form>
+					{% endif %}
+					{% if session["spotifytoken"] %}
+					<p>
+					logged in spotify as {{session['spotifyuser']}}
+					<form action="/spotiterm/get4weeksTracks" method="post">
+						<button class="menubutton-item" type="submit" >[get last month top tracks]</a></button>
+					</form>
+					<form action="/spotiterm/get6monthsTracks" method="post">
+						<button class="menubutton-item" type="submit" >[get last 6 months top tracks]</a></button>
+					</form>
+					<form action="/spotiterm/getAllTimeTracks" method="post">
+						<button class="menubutton-item" type="submit" >[get all time top tracks]</a></button>
+					</form>
+					<form action="/spotiterm/get4weeksArtists" method="post">
+						<button class="menubutton-item" type="submit" >[get last month top Artists]</a></button>
+					</form>
+					<form action="/spotiterm/get6monthsArtists" method="post">
+						<button class="menubutton-item" type="submit" >[get last 6 months top Artists]</a></button>
+					</form>
+					<form action="/spotiterm/getAllTimeArtists" method="post">
+						<button class="menubutton-item" type="submit" >[get all time top Artists]</a></button>
+					</form>
+					<form action="/spotiterm/clearGif" method="post">
+						<button class="menubutton-item" type="submit" >[delete last terminal]</a></button>
+					</form>
+					{% endif %}
+				</div>
+			</div>
+			last terminal gif link <a href='../static/gifgen/{{session["hashaccount"]}}.gif' class="link" target="_blank"><u>here</u></a>
+			<p>
+			<a href='../static/gifgen/{{session["hashaccount"]}}.gif' class="link" download="spotiterm_{{session['spotifyuser']}}"><u>download</u></a> (better !)
+			<p>
+			if u have a problem due to cache issue, delete the last terminal.
+		</div>
+		{% endif %}
+	</div>
+</body>
+
+</html>
