@@ -7,7 +7,6 @@ CLIENT_ID = ""
 CLIENT_SECRET = ""
 
 #Port and callback url can be changed or ledt to localhost:5000
-PORT = "5000"
 CALLBACK_URL = "http://localhost:5000"
 
 #Add needed scope from spotify user
