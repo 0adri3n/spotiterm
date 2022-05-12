@@ -20,6 +20,7 @@ pip install Pillow
 <p align="center">Open an issue if you have an error !</p>
 
 <img src="https://user-images.githubusercontent.com/62818208/168120244-e7b16834-f5f1-49a2-ac3b-0f6cb0effafd.png">
+image by heracles
 
 # Notes
 Huge thanks to https://github.com/vanortg/Flask-Spotify-Auth ! With his program, I don't spend time to create my own to login in spotify api.
